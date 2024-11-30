@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.8.3.2 (Linux)"/>
+	<meta name="created" content="2024-11-30T10:20:57.979693097"/>
+	<meta name="changed" content="2024-11-30T10:22:28.312975332"/>
+</head>
+<body lang="en-US" dir="ltr">
+<ol type="A"><li style="display: block"><p style="margin-bottom: 0.11in">
+	<font face="Times New Roman, serif"><font size="4" style="font-size: 14pt"><b>Sample
+	Code</b></font></font></p></li>
+</ol>
+<p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>User
+Registration Coding</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">frmuserregistration</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid = db.userregs.OrderByDescending(o =&gt; o.Userid).Select(s =&gt;
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+{ s.Userid }).Take(1);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(maxid.Count() &lt;= 0)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_userid.Text
+= </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;1&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">foreach</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+item </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">decimal</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+str = item.Userid;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_userid.Text
+= (str + 1).ToString();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+btnregister_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">userreg</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+ur = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">userreg</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.Userid
+= </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_userid.Text);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.name_user
+= txt_name.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.gender
+= drop_gender.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.email_id
+= txt_emailid.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.mobile_number
+= </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_mobile.Text);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.username
+= txt_username.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ur.password
+= txt_pwd.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.userregs.InsertOnSubmit(ur);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.SubmitChanges();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+        <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;frmuserlogin.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);
+</font></font></font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+      <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">User
+Login Coding</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">frmuserlogin</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack== </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+btnlogin_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(txtusername.Text != </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+query = db.userregs.Where(x =&gt; x.username ==
+txtusername.Text).Where(x =&gt; x.password ==
+txtpassword.Text).FirstOrDefault();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(query == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">null</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+              
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page.ClientScript.RegisterStartupScript(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">this</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.GetType(),
+</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;scriptkey&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">,
+</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;&lt;script&gt;alert('Invalid
+Login');&lt;/script&gt;&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">return</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">else</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Session[</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;userid&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">]
+= query.Userid;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Session[</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;username&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">]
+= query.username;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;frmusermenu.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Admin
+Login Coding</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">frmadminlogin</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+btnlogin_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+((txtusername.Text == </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;admin&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)
+&amp;&amp; (txtpassword.Text == </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;admin&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">))</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;frmadminmenu.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">else</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page.ClientScript.RegisterStartupScript(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">this</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.GetType(),
+</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;scriptkey&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">,
+</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;&lt;script&gt;alert('Password
+Incorrect');&lt;/script&gt;&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Finding
+Bus Route </font></font></font>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">frmBusRoute</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+btn_route_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">string</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+busNumber = txt_busno.Text.Trim();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#008000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Query for GridView1 - Route Details</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+routeDetails = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">from</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stop </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db.StopMasters</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                          </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">where</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stop.BusNumber == busNumber</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                          </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">orderby</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stop.Stop_no </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ascending</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                          </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">select</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                          <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Stop_no,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Stop_name,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Arrival_time,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Charges</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                          <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">};</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView1.DataSource
+= routeDetails;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView1.DataBind();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#008000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Query for GridView2 - Bus Details</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+busDetails = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">from</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bus </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db.BusDetails</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                        </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">where</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bus.BusNumber == busNumber</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                        </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">select</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bus;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView2.DataSource
+= busDetails;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView2.DataBind();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Stop
+Track Details</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Frm_Stoptrack</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stopNames = db.StopMasters</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.Select(s
+=&gt; s.Stop_name)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.Distinct()</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.OrderBy(name
+=&gt; name)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToList();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">drop_stop.DataSource
+= stopNames;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">drop_stop.DataBind();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+btn_route_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">string</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+selectedStopName = drop_stop.SelectedValue;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#008000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Query to find matching bus details where the stop name matches
+Starting_point or Ending_point</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+query = db.BusDetails</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                     <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.Where(bd
+=&gt; bd.Starting_point == selectedStopName || bd.ending_point ==
+selectedStopName)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                     <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.Select(bd
+=&gt; </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                     <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.BusNumber,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.Starting_point,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                         <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.ending_point</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                     <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">});</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#008000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Bind query result to GridView2</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView2.DataSource
+= query;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView2.DataBind();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#008000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Query for GridView1 - Stop Match Details Sorted by Arrival Time</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stopMatchDetails = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">from</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stop </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db.StopMasters</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">where</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+stop.Stop_name == selectedStopName</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">orderby</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDateTime(stop.Arrival_time)
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">ascending</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">select</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                                  <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.BusNumber,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                                  <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Stop_name,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                                  <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Arrival_time,</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                                  <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">stop.Charges</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+                              <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">};</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView1.DataSource
+= stopMatchDetails;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">GridView1.DataBind();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Stop
+and Fare Details</font></font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">FrmStop</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid = db.StopMasters.OrderByDescending(o =&gt; o.Stop_id).Select(s
+=&gt; </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+{ s.Stop_id }).Take(1);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(maxid.Count() &lt;= 0)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_stopid.Text
+= </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;1&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">foreach</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+item </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">decimal</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+str = item.Stop_id;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_stopid.Text
+= (str + 1).ToString();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Button1_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">StopMaster</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sm = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">StopMaster</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.Stop_id
+= </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_stopid.Text);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.BusNumber
+= txt_busno.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.Stop_no
+= </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_Stopno.Text);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.Stop_name
+= txt_stopname.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.Arrival_time
+= txt_arrivaltime.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">sm.Charges
+= txt_charges.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.StopMasters.InsertOnSubmit(sm);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.SubmitChanges();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;FrmStop.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Button2_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bd = db.StopMasters.FirstOrDefault(record =&gt; record.Stop_id ==
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_stopid.Text));</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(bd != </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">null</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.StopMasters.DeleteOnSubmit(bd);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.SubmitChanges();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;FrmStop.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+GridView1_SelectedIndexChanged(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_stopid.Text
+= GridView1.SelectedRow.Cells[0].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_busno.Text
+= GridView1.SelectedRow.Cells[1].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_Stopno.Text
+= GridView1.SelectedRow.Cells[2].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_stopname.Text
+= GridView1.SelectedRow.Cells[0].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_arrivaltime.Text
+= GridView1.SelectedRow.Cells[0].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_charges.Text
+= GridView1.SelectedRow.Cells[0].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="margin-left: 0.5in; margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Bus
+Details</font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Collections.Generic;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Linq;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">using</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+System.Web.UI.WebControls;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">public</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">partial</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">class</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">frmBusDetails</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+: System.Web.UI.</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Page</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+db = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">dbconnectDataContext</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Page_Load(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(IsPostBack == </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">false</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid = db.BusDetails.OrderByDescending(o =&gt; o.auto_id).Select(s
+=&gt; </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+{ s.auto_id }).Take(1);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(maxid.Count() &lt;= 0)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_autoid.Text
+= </font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;1&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">foreach</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+item </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">in</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+maxid)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">decimal</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+str = item.auto_id;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_autoid.Text
+= (str + 1).ToString();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Button1_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       </font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">BusDetail</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bd = </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">new</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">BusDetail</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.auto_id
+= </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_autoid.Text);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.BusNumber
+= txt_busno.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.Starting_point
+= txt_startingPoint.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bd.ending_point
+= txt_endingpoint.Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.BusDetails.InsertOnSubmit(bd);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.SubmitChanges();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;frmBusDetails.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Button2_Click(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+     </font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">var</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+bd = db.BusDetails.FirstOrDefault(record =&gt; record.auto_id ==
+</font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Convert</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.ToDecimal(txt_autoid.Text));</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+(bd != </font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">null</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.BusDetails.DeleteOnSubmit(bd);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+               <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">db.SubmitChanges();</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+           <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Response.Redirect(</font></font></font><font color="#a31515"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">&quot;frmBusDetails.aspx&quot;</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">);</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+      <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   </font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">protected</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">void</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+GridView1_SelectedIndexChanged(</font></font></font><font color="#0000ff"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">object</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+sender, </font></font></font><font color="#2b91af"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">EventArgs</font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+e)</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">{</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_autoid.Text
+= GridView1.SelectedRow.Cells[0].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_busno.Text
+= GridView1.SelectedRow.Cells[1].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_startingPoint.Text
+= GridView1.SelectedRow.Cells[2].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+       <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">txt_endingpoint.Text
+= GridView1.SelectedRow.Cells[3].Text;</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000">
+   <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></font></p>
+</body>
+</html>
